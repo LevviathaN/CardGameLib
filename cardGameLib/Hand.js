@@ -1,5 +1,6 @@
 function Hand() {
 
+  this.name = "";
   this.cards = []; //array
   this.selectedCards = []; //array
   this.hiddenCards = []; //array
