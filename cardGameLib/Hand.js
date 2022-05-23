@@ -4,6 +4,9 @@ function Hand() {
   this.selectedCards = []; //array
   this.hiddenCards = []; //array
   this.shape = "rect";
+  //todo: for now handX amd handY are set separatly in scetch.js. Possible solution - set coordinates in constructor.
+  this.handX = this.x; // starting x position of container. Needed to correct actual position depending on expandDirection
+  this.handY = this.y; // starting y position of container. Needed to correct actual position depending on expandDirection
   
   this.show = function() {
     this.w = this.gcCardSize+2*this.margin;
@@ -13,25 +16,62 @@ function Hand() {
 
     //if there are cards in hand
     if (this.cards.length > 0) {
+
+      // Correct container's coordinates and dimentions
       switch (this.expandDirection) {
         case "horizontal":
           this.w = (this.gcCardSize+this.margin) * this.cards.length + this.margin;
-          //if number of cards is odd (1,3,5...)
-          if (this.cards.length % 2) {
-            startX = this.x - this.gcCardSize * ((this.cards.length-1)/2) - this.margin * ((this.cards.length-1)/2);
-          } else {
-            startX = this.x - this.gcCardSize * (this.cards.length/2) - this.margin * (this.cards.length/2-1) - this.margin/2 + this.gcCardSize/2;
-          }
           break;
         case "vertical":
           this.h = (this.gcCardSize*this.gcCardAspectRatio+this.margin) * this.cards.length + this.margin;
-          //if number of cards is odd (1,3,5...)
-          if (this.cards.length % 2) {
-            startY = this.y - this.gcCardSize*this.gcCardAspectRatio * ((this.cards.length-1)/2) - this.margin * ((this.cards.length-1)/2);
-          } else {
-            startY = this.y - this.gcCardSize*this.gcCardAspectRatio * (this.cards.length/2) - this.margin * (this.cards.length/2-1) - this.margin/2 + (this.gcCardSize*this.gcCardAspectRatio)/2;
-          }
           break;
+        case "right":
+          this.w = (this.gcCardSize+this.margin) * this.cards.length + this.margin;
+          this.x = this.handX + ((this.gcCardSize+this.margin)/2) * (this.cards.length-1);
+          break;
+        case "left":
+          this.w = (this.gcCardSize+this.margin) * this.cards.length + this.margin;
+          this.x = this.handX - ((this.gcCardSize+this.margin)/2) * (this.cards.length-1);
+          break;
+        case "down":
+          this.h = (this.gcCardSize*this.gcCardAspectRatio+this.margin) * this.cards.length + this.margin;
+          this.y = this.handY + ((this.gcCardSize*this.gcCardAspectRatio+this.margin)/2) * (this.cards.length-1);
+          break;
+        case "up":
+          this.h = (this.gcCardSize*this.gcCardAspectRatio+this.margin) * this.cards.length + this.margin;
+          this.y = this.handY - ((this.gcCardSize*this.gcCardAspectRatio+this.margin)/2) * (this.cards.length-1);
+          break;
+      }
+
+      // Correct starting card coordinates
+      if (this.expandDirection == "horizontal" || this.expandDirection == "right") {
+        //if number of cards is odd (1,3,5...)
+        if (this.cards.length % 2) {
+          startX = this.x - this.gcCardSize * ((this.cards.length-1)/2) - this.margin * ((this.cards.length-1)/2);
+        } else {
+          startX = this.x - this.gcCardSize * (this.cards.length/2) - this.margin * (this.cards.length/2-1) - this.margin/2 + this.gcCardSize/2;
+        }
+      } else if (this.expandDirection == "left") {
+        //if number of cards is odd (1,3,5...)
+        if (this.cards.length % 2) {
+          startX = this.x + this.gcCardSize * ((this.cards.length-1)/2) + this.margin * ((this.cards.length-1)/2);
+        } else {
+          startX = this.x + this.gcCardSize * (this.cards.length/2) + this.margin * (this.cards.length/2-1) + this.margin/2 - this.gcCardSize/2;
+        }
+      } else if (this.expandDirection == "vertical" || this.expandDirection == "down") {
+        //if number of cards is odd (1,3,5...)
+        if (this.cards.length % 2) {
+          startY = this.y - this.gcCardSize*this.gcCardAspectRatio * ((this.cards.length-1)/2) - this.margin * ((this.cards.length-1)/2);
+        } else {
+          startY = this.y - this.gcCardSize*this.gcCardAspectRatio * (this.cards.length/2) - this.margin * (this.cards.length/2-1) - this.margin/2 + (this.gcCardSize*this.gcCardAspectRatio)/2;
+        }
+      } else if (this.expandDirection == "up") {
+        //if number of cards is odd (1,3,5...)
+        if (this.cards.length % 2) {
+          startY = this.y + this.gcCardSize*this.gcCardAspectRatio * ((this.cards.length-1)/2) + this.margin * ((this.cards.length-1)/2);
+        } else {
+          startY = this.y + this.gcCardSize*this.gcCardAspectRatio * (this.cards.length/2) + this.margin * (this.cards.length/2-1) + this.margin/2 - (this.gcCardSize*this.gcCardAspectRatio)/2;
+        }
       }
 
       //set all cards coordinates inside the hand
@@ -40,10 +80,13 @@ function Hand() {
         this.cards[i].y = startY;
         if (this.expandDirection == "horizontal" || this.expandDirection == "right") {
           startX = startX + this.gcCardSize + this.margin;
+        } else if (this.expandDirection == "left") {
+          startX = startX - this.gcCardSize - this.margin;
         } else if (this.expandDirection == "vertical" || this.expandDirection == "down") {
           startY = startY + this.gcCardSize*this.gcCardAspectRatio + this.margin;
+        } else if (this.expandDirection == "up") {
+          startY = startY - this.gcCardSize*this.gcCardAspectRatio - this.margin;
         }
-        
       }
     }
 
