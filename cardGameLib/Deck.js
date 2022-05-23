@@ -1,4 +1,5 @@
 function Deck() {
+  this.name = "";
   this.cards = []; //array
   this.selectedCards = []; //array
   this.hiddenCards = []; //array
@@ -30,10 +31,16 @@ function Deck() {
       pop();
     }
     
-    //drow text on the top of the deck
+    //draw text on the top of the deck
     push();
-    textAlign(CENTER);
+    textAlign(CENTER,CENTER);
     text(this.cards.length, this.x-this.appearingCardNumber*this.cardsOffsetInDeck, this.y-this.appearingCardNumber*this.cardsOffsetInDeck);
+    pop();
+
+    //draw deck name
+    push();
+    textAlign(CENTER,CENTER);
+    text(this.name, this.x, this.y + this.gcCardSize/2 * this.gcCardAspectRatio + 12);
     pop();
   }
   

@@ -1,9 +1,13 @@
 var canva;
-var card1, card2, card3;
 var cardInfo;
-var deck;
-var hand;
-var spell;
+var spellDeck;
+var playerZavadila;
+var playerNavorot;
+var playerPrihod;
+var playerHand;
+// var playerSpell;
+var player;
+var enemyPlayers;
 
 var mousePressedX = 0;
 var mousePressedY = 0;
@@ -13,52 +17,89 @@ var mouseReleasedY = 0;
 function setup() {
   canva = createCanvas(600, 600);
 
-  hand = new Hand();
-  hand.x = width/2;
-  hand.y = 550;
-  hand.color = "green";
+  // Initialize player hand
+  playerHand = new Hand();
+  playerHand.x = width/2;
+  playerHand.y = 550;
+  playerHand.color = "green";
   for (let i = 0; i < 3; i++) {
-    hand.addCard(new Card(i));
-    hand.cards[i].id = i;
+    playerHand.addCard(new Card(i));
+    playerHand.cards[i].id = i;
   }
   
-  spell = new Hand();
-  spell.x = width/2;
-  spell.y = 450;
-  spell.color = "lightgreen";
+  // initialize player spell area
+  playerNavorot = new Hand();
+  playerNavorot.x = width/2;
+  playerNavorot.y = 450;
+  playerNavorot.color = "orange";
+  playerNavorot.expandDirection = "vertical";
+
+  playerPrihod = new Hand();
+  playerPrihod.x = playerNavorot.x + 70;
+  playerPrihod.y = 450;
+  playerPrihod.color = "darkred";
+  playerPrihod.expandDirection = "vertical";
   
-  deck = new Deck();
-  deck.x = 200;
-  deck.y = 300;
-  deck.color = "blue";
+  playerZavadila = new Hand();
+  playerZavadila.x = playerNavorot.x - 70;
+  playerZavadila.y = 450;
+  playerZavadila.color = "yellow";
+  playerZavadila.expandDirection = "vertical";
+
+  // playerSpell = new Hand();
+  // playerSpell.x = width/2;
+  // playerSpell.y = 450;
+  // playerSpell.color = "lightgreen";
+  
+  // Initialize spell deck
+  spellDeck = new Deck();
+  spellDeck.name = "Spell Deck";
+  spellDeck.x = 400;
+  spellDeck.y = 50;
+  spellDeck.color = "blue";
   for (let i = 0; i < 5; i++) {
-    deck.addCard(new Card("deck" + i));
-    deck.cards[i].id = i;
-    deck.cards[i].setStat("attack",i*20);
-    deck.cards[i].setStat("mana",i*5);
+    spellDeck.addCard(new Card("spell" + i));
+    spellDeck.cards[i].id = i;
+    spellDeck.cards[i].setStat("attack",i*20);
+    spellDeck.cards[i].setStat("mana",i*5);
   }
   
+  // Initialize card info module
   cardInfo = new CardInfo();
   cardInfo.x = 510;
   cardInfo.y = 50;
   cardInfo.color = "yellow";
+
+  // initialize player
+  player = new Player();
+  player.x = width - player.size;
+  player.y = height - player.size;
+  player.name = "Ruslan";
+  player.color = "green";
 }
 
 function draw() {
   background(220);
-  hand.show();
-  spell.show();
-  deck.show();
+  playerHand.show();
+  // playerSpell.show();
+  playerNavorot.show();
+  playerPrihod.show();
+  playerZavadila.show();
+  spellDeck.show();
   cardInfo.show();
+  player.show();
   if (gameManager.draggedCard != null) {
     gameManager.draggedCard.show();
   }
 }
 
 function mouseDragged() {
-  hand.onMouseDragged(mouseX,mouseY);
-  spell.onMouseDragged(mouseX,mouseY);
-  deck.onMouseDragged(mouseX,mouseY);
+  playerHand.onMouseDragged(mouseX,mouseY);
+  // playerSpell.onMouseDragged(mouseX,mouseY);
+  playerNavorot.onMouseDragged(mouseX,mouseY);
+  playerPrihod.onMouseDragged(mouseX,mouseY);
+  playerZavadila.onMouseDragged(mouseX,mouseY);
+  spellDeck.onMouseDragged(mouseX,mouseY);
 }
 
 function mousePressed() {
@@ -70,11 +111,17 @@ function mousePressed() {
 function mouseReleased() {
   if (abs(mousePressedX-mouseX) < 5 || abs(mousePressedX-mouseX) < 5) {
     console.log("Mouse clicked");
-    hand.onMouseClicked(mouseX,mouseY);
-    spell.onMouseClicked(mouseX,mouseY);
+    playerHand.onMouseClicked(mouseX,mouseY);
+    // playerSpell.onMouseClicked(mouseX,mouseY);
+    playerNavorot.onMouseClicked(mouseX,mouseY);
+    playerPrihod.onMouseClicked(mouseX,mouseY);
+    playerZavadila.onMouseClicked(mouseX,mouseY);
   }
   console.log("Mouse released");
-  hand.onMouseReleased(mouseX,mouseY);
-  spell.onMouseReleased(mouseX,mouseY);
-  deck.onMouseReleased(mouseX,mouseY);
+  playerHand.onMouseReleased(mouseX,mouseY);
+  // playerSpell.onMouseReleased(mouseX,mouseY);
+  playerNavorot.onMouseReleased(mouseX,mouseY);
+  playerPrihod.onMouseReleased(mouseX,mouseY);
+  playerZavadila.onMouseReleased(mouseX,mouseY);
+  spellDeck.onMouseReleased(mouseX,mouseY);
 }

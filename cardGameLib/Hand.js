@@ -6,31 +6,55 @@ function Hand() {
   this.shape = "rect";
   
   this.show = function() {
+    this.w = this.gcCardSize+2*this.margin;
     this.h = this.gcCardSize*this.gcCardAspectRatio+2*this.margin;
-    let startX;
+    let startX = this.x; // x position of the first card to be drawn
+    let startY = this.y; // y position of the first card to be drawn
+
     //if there are cards in hand
     if (this.cards.length > 0) {
-      this.w = (this.gcCardSize+this.margin) * this.cards.length + this.margin;
-      //if number of cards is odd (1,3,5...)
-      if (this.cards.length % 2) {
-        startX = this.x - this.gcCardSize * ((this.cards.length-1)/2) - this.margin * ((this.cards.length-1)/2);
-      } else {
-        startX = this.x - this.gcCardSize * (this.cards.length/2) - this.margin * (this.cards.length/2-1) - this.margin/2 + this.gcCardSize/2;
+      switch (this.expandDirection) {
+        case "horizontal":
+          this.w = (this.gcCardSize+this.margin) * this.cards.length + this.margin;
+          //if number of cards is odd (1,3,5...)
+          if (this.cards.length % 2) {
+            startX = this.x - this.gcCardSize * ((this.cards.length-1)/2) - this.margin * ((this.cards.length-1)/2);
+          } else {
+            startX = this.x - this.gcCardSize * (this.cards.length/2) - this.margin * (this.cards.length/2-1) - this.margin/2 + this.gcCardSize/2;
+          }
+          break;
+        case "vertical":
+          this.h = (this.gcCardSize*this.gcCardAspectRatio+this.margin) * this.cards.length + this.margin;
+          //if number of cards is odd (1,3,5...)
+          if (this.cards.length % 2) {
+            startY = this.y - this.gcCardSize*this.gcCardAspectRatio * ((this.cards.length-1)/2) - this.margin * ((this.cards.length-1)/2);
+          } else {
+            startY = this.y - this.gcCardSize*this.gcCardAspectRatio * (this.cards.length/2) - this.margin * (this.cards.length/2-1) - this.margin/2 + (this.gcCardSize*this.gcCardAspectRatio)/2;
+          }
+          break;
       }
+
       //set all cards coordinates inside the hand
       for (let i = 0; i < this.cards.length; i++) {
         this.cards[i].x = startX;
-        this.cards[i].y = this.y;
-        startX = startX + this.gcCardSize + this.margin;
+        this.cards[i].y = startY;
+        if (this.expandDirection == "horizontal" || this.expandDirection == "right") {
+          startX = startX + this.gcCardSize + this.margin;
+        } else if (this.expandDirection == "vertical" || this.expandDirection == "down") {
+          startY = startY + this.gcCardSize*this.gcCardAspectRatio + this.margin;
+        }
+        
       }
-    } else {
-      this.w = this.margin+this.gcCardSize+this.margin;
     }
+
+    // draw container
     push();
     rectMode(CENTER);
     fill(this.color);
     rect(this.x, this.y, this.w, this.h);
     pop();
+
+    // draw all the cards in the container
     for (let i = 0; i < this.cards.length; i++) {
       this.cards[i].show();
     }
