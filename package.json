@@ -1,0 +1,22 @@
+{
+  "name": "cardgamelib",
+  "version": "1.0.0",
+  "description": "Framework for online card games",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LevviathaN/CardGameLib.git"
+  },
+  "author": "Ruslan Levytskyi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LevviathaN/CardGameLib/issues"
+  },
+  "homepage": "https://github.com/LevviathaN/CardGameLib#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
