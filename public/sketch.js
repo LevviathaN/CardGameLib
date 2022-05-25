@@ -35,13 +35,13 @@ function setup() {
   // Initialize spell deck
   uiManager.createDeck("Spell Deck",400,50);
   uiManager.getDeck("Spell Deck").color = "blue";
-  // uiManager.getDeck("Spell Deck").parseCardsFromJson("file:///Users/ruslanlevytskyi/Programing/JS%20Projects/CardGameLib/games/Mages/spellDeck.json");
-  for (let i = 0; i < 5; i++) {
-    uiManager.getDeck("Spell Deck").addCard(new Card("spell" + i));
-    uiManager.getDeck("Spell Deck").cards[i].id = i;
-    uiManager.getDeck("Spell Deck").cards[i].setStat("attack",i*20);
-    uiManager.getDeck("Spell Deck").cards[i].setStat("mana",i*5);
-  }
+  uiManager.getDeck("Spell Deck").parseCardsFromJson("http://localhost:3000/games/Mages/spellDeck.json");
+  // for (let i = 0; i < 5; i++) {
+  //   uiManager.getDeck("Spell Deck").addCard(new Card("spell" + i));
+  //   uiManager.getDeck("Spell Deck").cards[i].id = i;
+  //   uiManager.getDeck("Spell Deck").cards[i].setStat("attack",i*20);
+  //   uiManager.getDeck("Spell Deck").cards[i].setStat("mana",i*5);
+  // }
   
   // Initialize card info module
   cardInfo = new CardInfo();

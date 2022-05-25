@@ -11,6 +11,8 @@ function CardContainer() {
   this.padding = 0;
   this.margin = 5;
   this.curvature = 0;
+
+  this.json;
   
   this.shuffle = function() {
     
@@ -30,14 +32,16 @@ function CardContainer() {
   }
 
   this.parseCardsFromJson = function(filePath) {
-    fetch('filePath').then(response => response.json()).then(data => console.log(data));
-
+    let cardsArray;
+    // this.json = require(filePath);
+    fetch(filePath).then(response => response.json()).then(data => this.json = data);
+    // this.json = cardsArray;
     // let json = require(filePath);
-    let obj = JSON.parse(json);
-    for (let i = 0; i < obj.length; i++) {
-      let card = new Card(obj[i].name);
-      this.cards.push(card);
-    }
+    // let obj = JSON.parse(json);
+    // for (let i = 0; i < this.json.length; i++) {
+    //   let card = new Card(this.json[i].name);
+    //   this.cards.push(card);
+    // }
   }
   
   this.removeCard = function(cardToRemove) {
