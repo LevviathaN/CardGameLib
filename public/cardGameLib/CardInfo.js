@@ -10,9 +10,9 @@ function CardInfo() {
     fill(this.color);
     rect(this.x, this.y, this.w, this.h);
     pop();
-    if (gameManager.selectedCard != null) {
-      this.card.name = gameManager.selectedCard.name;
-      this.card.stats = gameManager.selectedCard.stats;
+    if (uiManager.selectedCard != null) {
+      this.card.name = uiManager.selectedCard.name;
+      this.card.stats = uiManager.selectedCard.stats;
       this.card.x = this.x + this.w/2 - this.gcCardSize/2 - this.padding;
       this.card.y = this.y;
       this.card.show();

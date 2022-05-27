@@ -1,0 +1,193 @@
+[
+    [
+        {"name": "name", "value": "Желатазаедр"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "порча-тварюка"},
+        {"name": "initiative", "value": "12"},
+        {"name": "target", "value": "лівий ворог"},
+        {"name": "oneToFour", "value": "2 урону"},
+        {"name": "fiveToNine", "value": "3 урону"},
+        {"name": "tenPlus", "value": "4 урону, а ти береш ще один скарб. СТОЯТИ!"},
+        {"name": "qttInDeck", "value": "1"}
+    ],
+    [
+        {"name": "name", "value": "Жракула"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "трава-тварюка"},
+        {"name": "initiative", "value": "13"},
+        {"name": "target", "value": "ворог з замком"},
+        {"name": "oneToFour", "value": "1 урон"},
+        {"name": "fiveToNine", "value": "2 урону, а ти захоплюєш замок"},
+        {"name": "tenPlus", "value": "5 урону, а ти захоплюєш замок. СТОЯТИ!"},
+        {"name": "qttInDeck", "value": "1"}
+    ],
+    [
+        {"name": "name", "value": "Архаровець"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "угар-тварюка"},
+        {"name": "initiative", "value": "11"},
+        {"name": "target", "value": "один ворог без замку"},
+        {"name": "oneToFour", "value": "1 урон"},
+        {"name": "fiveToNine", "value": "2 урону"},
+        {"name": "tenPlus", "value": "3 урону, (6 урону, якщо жертва - останній ворог). СТОЯТИ!"},
+        {"name": "qttInDeck", "value": "1"}
+    ],
+    [
+        {"name": "name", "value": "Кубодемон"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "угар-тварюка"},
+        {"name": "initiative", "value": "7"},
+        {"name": "target", "value": "найживучіший ворог"},
+        {"name": "oneToFour", "value": "1 урон"},
+        {"name": "fiveToNine", "value": "2 урону"},
+        {"name": "tenPlus", "value": "1 кубик урону. СТОЯТИ!"},
+        {"name": "qttInDeck", "value": "2"}
+    ],
+    [
+        {"name": "name", "value": "Гамадрантул"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "порча-тварюка"},
+        {"name": "initiative", "value": "17"},
+        {"name": "target", "value": "правий ворог"},
+        {"name": "oneToFour", "value": "1 урон"},
+        {"name": "fiveToNine", "value": "2 урону"},
+        {"name": "tenPlus", "value": "4 урону, а ти отримуєш 1 літр крові. СТОЯТИ!"},
+        {"name": "qttInDeck", "value": "1"}
+    ],
+    [
+        {"name": "name", "value": "Кулак БОГА"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "порча-тварюка"},
+        {"name": "initiative", "value": "1"},
+        {"name": "target", "value": "ворог, в якого найбільше скарбів"},
+        {"name": "oneToFour", "value": "1 урон"},
+        {"name": "fiveToNine", "value": "3 урону, і жертва скидає 1 свій скарб"},
+        {"name": "tenPlus", "value": "7 урону."},
+        {"name": "qttInDeck", "value": "2"}
+    ],
+    [
+        {"name": "name", "value": "Пердолицар"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "кумар-тварюка"},
+        {"name": "initiative", "value": "20"},
+        {"name": "bloodBufCost", "value": "2"},
+        {"name": "bloodBuf", "value": "можеш окремо (і до різних гравців) застосувати результати кубиків, кинутих в могутньому кидку."},
+        {"name": "target", "value": "ворог за твоїм вибором"},
+        {"name": "oneToFour", "value": "1 урон. СТОЯТИ!"},
+        {"name": "fiveToNine", "value": "2 урону"},
+        {"name": "tenPlus", "value": "4 урону."},
+        {"name": "qttInDeck", "value": "1"}
+    ],
+    [
+        {"name": "name", "value": "Трахангутан"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "трава-тварюка"},
+        {"name": "initiative", "value": "8"},
+        {"name": "target", "value": "один ворог, що вже походив у цьому раунді"},
+        {"name": "oneToFour", "value": "2 урону"},
+        {"name": "fiveToNine", "value": "3 урону"},
+        {"name": "tenPlus", "value": "4 урону, а кожен інший ворог вхоплює 1 урон. СТОЯТИ!"},
+        {"name": "qttInDeck", "value": "1"}
+    ],
+    [
+        {"name": "name", "value": "Герцог Білкінгем"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "трава-тварюка"},
+        {"name": "initiative", "value": "18"},
+        {"name": "target", "value": "ворог, в якого найбільше крові"},
+        {"name": "oneToFour", "value": "Немає ефекту"},
+        {"name": "fiveToNine", "value": "2 урону"},
+        {"name": "tenPlus", "value": "4 урону, а ти накручуєш 2 життя. СТОЯТИ!"},
+        {"name": "qttInDeck", "value": "2"}
+    ],
+    [
+        {"name": "name", "value": "Мочальник"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "кумар-тварюка"},
+        {"name": "initiative", "value": "5"},
+        {"name": "target", "value": "ворог, в якого найбільше крові"},
+        {"name": "oneToFour", "value": "Жертва здає тобі 1 літр крові"},
+        {"name": "fiveToNine", "value": "1 урон, і жертва здає тобі 1 літр крові"},
+        {"name": "tenPlus", "value": "4 урону, і жертва здає тобі 1 літр крові. СТОЯТИ!"},
+        {"name": "qttInDeck", "value": "2"}
+    ],
+    [
+        {"name": "name", "value": "Квартет бісів-сутенерів"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "кумар-тварюка"},
+        {"name": "initiative", "value": "19"},
+        {"name": "target", "value": "найбільш чахлий ворог"},
+        {"name": "oneToFour", "value": "Кожен ворог накручує 1 життя"},
+        {"name": "fiveToNine", "value": "3 урону. СТОЯТИ!"},
+        {"name": "tenPlus", "value": "5 урону, а кожен інший ворог накручує 1 життя."},
+        {"name": "qttInDeck", "value": "1"}
+    ],
+    [
+        {"name": "name", "value": "Йог-Ніггатод"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "морок-тварюка"},
+        {"name": "initiative", "value": "6"},
+        {"name": "bloodBufCost", "value": "1"},
+        {"name": "bloodBuf", "value": "додавай на цьому ході 1 кубик до могутнього кидку кожної твоєї тварюки."},
+        {"name": "target", "value": "ворог, що вже походив у цьому раунді"},
+        {"name": "oneToFour", "value": "Немає ефекту"},
+        {"name": "fiveToNine", "value": "1 урон"},
+        {"name": "tenPlus", "value": "2 урону, а ти граєш ще 1 тварюку з руки. СТОЯТИ!"},
+        {"name": "qttInDeck", "value": "2"}
+    ],
+    [
+        {"name": "name", "value": "Бєломор-Дракон"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "угар-тварюка"},
+        {"name": "initiative", "value": "2"},
+        {"name": "target", "value": "ворог, що вже походив у цьому раунді"},
+        {"name": "oneToFour", "value": "1 урон."},
+        {"name": "fiveToNine", "value": "3 урону."},
+        {"name": "tenPlus", "value": "3 урону, а потім ще 3 урону кожному чаклуну з медаллю недобитого чаклуна. СТОЯТИ!"},
+        {"name": "qttInDeck", "value": "1"}
+    ],
+    [
+        {"name": "name", "value": "Мехатана"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "морок-тварюка"},
+        {"name": "initiative", "value": "3"},
+        {"name": "target", "value": "найбільш чахлий ворог"},
+        {"name": "oneToFour", "value": "1 урон."},
+        {"name": "fiveToNine", "value": "2 урону, а ти відхоплюєш 1 урон."},
+        {"name": "tenPlus", "value": "4 урону, а потім нанеси 2 урону найживучішому ворогу. СТОЯТИ!"},
+        {"name": "qttInDeck", "value": "1"}
+    ],
+    [
+        {"name": "name", "value": "Змій Куринич"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "трава-тварюка"},
+        {"name": "initiative", "value": "10"},
+        {"name": "target", "value": "найживучіший ворог"},
+        {"name": "oneToFour", "value": "СТОЯТИ!"},
+        {"name": "fiveToNine", "value": "2 урону."},
+        {"name": "tenPlus", "value": "4 урону"},
+        {"name": "qttInDeck", "value": "2"}
+    ],
+    [
+        {"name": "name", "value": "Анус Запіканус"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "угар-тварюка"},
+        {"name": "initiative", "value": "9"},
+        {"name": "target", "value": "ворог, в якого найбільше крові."},
+        {"name": "oneToFour", "value": "2 урону."},
+        {"name": "fiveToNine", "value": "3 урону."},
+        {"name": "tenPlus", "value": "4 урону. СТОЯТИ!"},
+        {"name": "qttInDeck", "value": "1"}
+    ],
+    [
+        {"name": "name", "value": "Вятський цирк"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "морок-тварюка"},
+        {"name": "initiative", "value": "16"},
+        {"name": "target", "value": "ворог, в якого найбільше тварюк у грі."},
+        {"name": "oneToFour", "value": "Відхоплюєш 1 урон."},
+        {"name": "fiveToNine", "value": "Вбий одну тварюку жертви, а потім нанеси йому 3 урону."},
+        {"name": "tenPlus", "value": "4 урону. СТОЯТИ!"},
+        {"name": "qttInDeck", "value": "1"}
+    ]
+]

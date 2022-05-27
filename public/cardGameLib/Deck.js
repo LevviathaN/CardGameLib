@@ -45,24 +45,24 @@ function Deck() {
   }
   
   this.onMouseDragged = function(mx,my) {
-    if (gameManager.draggedCard == null){
+    if (uiManager.draggedCard == null){
       if (this.isMouseOver(mx,my)) {
         console.log("mouse dragged over deck");
         if (this.cards.length > 0) {
-          gameManager.draggedCard = this.cards.pop();
+          uiManager.draggedCard = this.cards.pop();
         }
       }
     } else {
-      gameManager.draggedCard.x = mx;
-      gameManager.draggedCard.y = my;
+      uiManager.draggedCard.x = mx;
+      uiManager.draggedCard.y = my;
     }
   }
   
   this.onMouseReleased = function(mx,my) {
-    if (gameManager.draggedCard != null) {
+    if (uiManager.draggedCard != null) {
       if (this.isMouseOver(mx,my)) {
-        this.addCard(gameManager.draggedCard);
-        gameManager.draggedCard = null;
+        this.addCard(uiManager.draggedCard);
+        uiManager.draggedCard = null;
       }
     }
   }

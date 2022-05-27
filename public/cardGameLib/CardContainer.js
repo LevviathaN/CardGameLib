@@ -11,11 +11,18 @@ function CardContainer() {
   this.padding = 0;
   this.margin = 5;
   this.curvature = 0;
-
-  this.json;
   
   this.shuffle = function() {
-    
+    for (let i = this.cards.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+  
+      // swap elements array[i] and array[j]
+      // we use "destructuring assignment" syntax to achieve that
+      // you'll find more details about that syntax in later chapters
+      // same can be written as:
+      // let t = array[i]; array[i] = array[j]; array[j] = t
+      [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
+    }
   }
   
   this.addCard = function(cardToAdd) {
@@ -32,16 +39,15 @@ function CardContainer() {
   }
 
   this.parseCardsFromJson = function(filePath) {
-    let cardsArray;
-    // this.json = require(filePath);
-    fetch(filePath).then(response => response.json()).then(data => this.json = data);
-    // this.json = cardsArray;
-    // let json = require(filePath);
-    // let obj = JSON.parse(json);
-    // for (let i = 0; i < this.json.length; i++) {
-    //   let card = new Card(this.json[i].name);
-    //   this.cards.push(card);
-    // }
+    fetch(filePath).then(response => response.json()).then(data => {
+      for (let i = 0; i < data.length; i++) {
+        let card = new Card(data[i][0].value);
+        this.cards.push(card);
+        for (let j = 0; j < data[i].length; j++) {
+          card.setStat(data[i][j].name, data[i][j].value);
+        }
+      }
+    });
   }
   
   this.removeCard = function(cardToRemove) {

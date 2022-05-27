@@ -109,38 +109,38 @@ function Hand() {
         console.log("mouse clicked on hand");
         for (let i = 0; i < this.cards.length; i++) {
           if (this.cards[i].isMouseOver(mx,my)) {
-            if (gameManager.selectedCard != null) {
-              gameManager.selectedCard.highlight("black",1);
+            if (uiManager.selectedCard != null) {
+              uiManager.selectedCard.highlight("black",1);
             }
-            gameManager.selectedCard = this.cards[i];
-            gameManager.selectedCard.highlight("red",2);
+            uiManager.selectedCard = this.cards[i];
+            uiManager.selectedCard.highlight("red",2);
           }
         }
       }
   }
   
   this.onMouseDragged = function(mx,my) {
-    if (gameManager.draggedCard == null){
+    if (uiManager.draggedCard == null){
       if (this.isMouseOver(mx,my)) {
         console.log("mouse dragged over hand");
         for (let i = 0; i < this.cards.length; i++) {
           if (this.cards[i].isMouseOver(mx,my)) {
-            gameManager.draggedCard = this.cards[i];
+            uiManager.draggedCard = this.cards[i];
             this.cards.splice(i,1);
           }
         }
       }
     } else {
-      gameManager.draggedCard.x = mx;
-      gameManager.draggedCard.y = my;
+      uiManager.draggedCard.x = mx;
+      uiManager.draggedCard.y = my;
     }
   }
   
   this.onMouseReleased = function(mx,my) {
-    if (gameManager.draggedCard != null) {
+    if (uiManager.draggedCard != null) {
       if (this.isMouseOver(mx,my)) {
-        this.addCard(gameManager.draggedCard);
-        gameManager.draggedCard = null;
+        this.addCard(uiManager.draggedCard);
+        uiManager.draggedCard = null;
       }
     }
   }
