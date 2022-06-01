@@ -1,6 +1,7 @@
 function CardInfo() {
   this.card = new Card("");
   this.padding = 5;
+  this.shape = "rect";
   
   this.show = function() {
     this.h = this.gcCardSize * this.gcCardAspectRatio + 2*this.padding;

@@ -55,6 +55,22 @@ function setup() {
   player.y = height - player.size;
   player.name = "Ruslan";
   player.color = "green";
+
+  
+  gameManager.createPlayer("Ira","yellow");
+  gameManager.createPlayer("Nastya","green");
+  gameManager.createPlayer("Petya","red");
+  let startingPlayerY = 350;
+  for (let i = 0; i < gameManager.players.length; i++) {
+    gameManager.players[i].value.x = 50;
+    gameManager.players[i].value.y = startingPlayerY;
+    gameManager.players[i].value.setStat("health",20);
+    gameManager.players[i].value.setStat("blood",5);
+    gameManager.players[i].value.setStat("castle",false);
+    gameManager.players[i].value.setStat("treasures",3);
+    gameManager.players[i].value.setStat("medal",1);
+    startingPlayerY -= 80;
+  }
 }
 
 function draw() {

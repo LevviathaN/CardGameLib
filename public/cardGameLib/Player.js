@@ -3,6 +3,7 @@ function Player() {
   this.hand = 0;
   this.stats = []; //array
   this.size = 60;
+  this.alreadyTurnedThisRound = false;
   
   this.show = function() {
     push();

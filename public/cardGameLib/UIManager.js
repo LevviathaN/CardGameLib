@@ -9,6 +9,9 @@ function UIManager() {
   
 
   this.show = function() {
+    for (let i = 0; i < gameManager.players.length; i++) {
+      gameManager.players[i].value.show();
+    }
     for (let i = 0; i < gameManager.decks.length; i++) {
       gameManager.decks[i].value.show();
     }

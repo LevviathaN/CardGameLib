@@ -6,12 +6,15 @@ function GeometryObj() {
   this.h = 0;
   this.maxW = 0;
   this.maxH = 0;
+  this.minW = 0;
+  this.minH = 0;
   this.size = 0;
   this.color = 0;
   this.borderColor = "black";
   this.borderThickness = 1;
   this.rotation = 0;
   this.shape = 0;
+  this.isDragged = false;
   
   this.isMouseOver = function(mx,my) {
     switch(this.shape) {
@@ -31,8 +34,6 @@ function GeometryObj() {
     this.borderColor = color;
     this.borderThiskness = thickness;
   }
-  
-  this.isDragged = false;
 
   
   this.onHover = function() {
