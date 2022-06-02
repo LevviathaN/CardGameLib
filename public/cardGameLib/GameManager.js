@@ -3,6 +3,7 @@ function GameManager() {
   this.currentPlayer = 0; //container for the player, which turn is now
   this.decks = [];
   this.hands = [];
+  this.buttons = [];
 
   //add universal Create and Get functions for objects in array
   this.createDeck = function(deckName,x,y) {
@@ -189,6 +190,39 @@ function GameManager() {
   this.selectPlayer = function() {
     let plyr = null;
     return plyr;
+  }
+  
+  this.createButton = function(buttonName,x,y) {
+    let button = new Button();
+    button.name = buttonName;
+    button.x = x;
+    button.y = y;
+
+    let buttonExists = false;
+    for (let i = 0; i < this.buttons.length; i++) {
+      if (this.buttons[i].name == buttonName) {
+        this.buttons[i].value = button;
+        buttonExists = true;
+        break;
+      }
+    }
+    if (!buttonExists) {
+      this.buttons.push({name: buttonName, value: button});
+    }
+  }
+
+  this.getButton = function(buttonName) {
+    for (let i = 0; i < this.buttons.length; i++) {
+      if (this.buttons[i].name == buttonName) {
+        return this.buttons[i].value;
+      }
+    }
+  }
+
+  this.playSelectedCard = function() {
+    if (uiManager.selectedCard != null) {
+      uiManager.selectedCard.action();
+    }
   }
 }
 const gameManager = new GameManager();

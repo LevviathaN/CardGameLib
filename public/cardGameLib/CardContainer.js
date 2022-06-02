@@ -38,10 +38,11 @@ function CardContainer() {
     
   }
 
-  this.parseCardsFromJson = function(filePath) {
-    fetch(filePath).then(response => response.json()).then(data => {
+  this.parseCardsFromJson = function(initializer) {
+    fetch(initializer.prihodCardsJsonPath).then(response => response.json()).then(data => {
       for (let i = 0; i < data.length; i++) {
         let card = new Card(data[i][0].value);
+        card.action = () => initializer.play(card);
         this.cards.push(card);
         for (let j = 0; j < data[i].length; j++) {
           card.setStat(data[i][j].name, data[i][j].value);

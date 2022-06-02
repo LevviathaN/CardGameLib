@@ -18,9 +18,15 @@ function UIManager() {
     for (let i = 0; i < gameManager.hands.length; i++) {
       gameManager.hands[i].value.show();
     }
+    for (let i = 0; i < gameManager.buttons.length; i++) {
+      gameManager.buttons[i].value.show();
+    }
   }
 
   this.onMouseClicked = function(mx,my) {
+    for (let i = 0; i < gameManager.buttons.length; i++) {
+      gameManager.buttons[i].value.onMouseClicked(mx,my);
+    }
     for (let i = 0; i < gameManager.hands.length; i++) {
       gameManager.hands[i].value.onMouseClicked(mx,my);
     }

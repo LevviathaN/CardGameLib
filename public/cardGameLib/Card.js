@@ -3,6 +3,7 @@ function Card(name) {
   //this.id = name;
   this.shape = "rect";
   this.stats = [];
+  this.action = null;
   this.container = 0;
   
   this.show = function() {

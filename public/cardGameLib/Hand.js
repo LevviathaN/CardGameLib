@@ -106,17 +106,17 @@ function Hand() {
   
   this.onMouseClicked = function(mx,my) {
     if (this.isMouseOver(mx,my)) {
-        console.log("mouse clicked on hand");
-        for (let i = 0; i < this.cards.length; i++) {
-          if (this.cards[i].isMouseOver(mx,my)) {
-            if (uiManager.selectedCard != null) {
-              uiManager.selectedCard.highlight("black",1);
-            }
-            uiManager.selectedCard = this.cards[i];
-            uiManager.selectedCard.highlight("red",2);
+      console.log("mouse clicked on hand");
+      for (let i = 0; i < this.cards.length; i++) {
+        if (this.cards[i].isMouseOver(mx,my)) {
+          if (uiManager.selectedCard != null) {
+            uiManager.selectedCard.highlight("black",1);
           }
+          uiManager.selectedCard = this.cards[i];
+          uiManager.selectedCard.highlight("red",2);
         }
       }
+    }
   }
   
   this.onMouseDragged = function(mx,my) {

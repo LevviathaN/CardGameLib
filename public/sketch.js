@@ -35,13 +35,7 @@ function setup() {
   // Initialize spell deck
   gameManager.createDeck("Spell Deck",400,50);
   gameManager.getDeck("Spell Deck").color = "blue";
-  gameManager.getDeck("Spell Deck").parseCardsFromJson("http://localhost:3000/games/Mages/spellDeckStringStats.json");
-  // for (let i = 0; i < 5; i++) {
-  //   gameManager.getDeck("Spell Deck").addCard(new Card("spell" + i));
-  //   gameManager.getDeck("Spell Deck").cards[i].id = i;
-  //   gameManager.getDeck("Spell Deck").cards[i].setStat("attack",i*20);
-  //   gameManager.getDeck("Spell Deck").cards[i].setStat("mana",i*5);
-  // }
+  gameManager.getDeck("Spell Deck").parseCardsFromJson(spellDeckInitializer);
   
   // Initialize card info module
   cardInfo = new CardInfo();
@@ -71,6 +65,18 @@ function setup() {
     gameManager.players[i].value.setStat("medal",1);
     startingPlayerY -= 80;
   }
+
+  gameManager.createButton("Hello",width/2,height/2);
+  gameManager.getButton("Hello").color = "green";
+  gameManager.getButton("Hello").w = 50;
+  gameManager.getButton("Hello").h = 20;
+  gameManager.getButton("Hello").setAction(() => console.log("Hello there!"));
+
+  gameManager.createButton("Play selected card",100,550);
+  gameManager.getButton("Play selected card").color = "yellow";
+  gameManager.getButton("Play selected card").w = 50;
+  gameManager.getButton("Play selected card").h = 20;
+  gameManager.getButton("Play selected card").setAction(() => gameManager.playSelectedCard());
 }
 
 function draw() {
