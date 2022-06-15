@@ -14,10 +14,6 @@ function setup() {
   // Initialize player hand
   gameManager.createHand("Player Hand",width/2,550);
   gameManager.getHand("Player Hand").color = "green";
-  for (let i = 0; i < 3; i++) {
-    gameManager.getHand("Player Hand").addCard(new Card(i));
-    gameManager.getHand("Player Hand").cards[i].id = i;
-  }
   
   // initialize player spell area
   gameManager.createHand("Player Navorot",width/2,450);
@@ -33,13 +29,13 @@ function setup() {
   gameManager.getHand("Player Zavadila").expandDirection = "up";
   
   // Initialize spell deck
-  gameManager.createDeck("Spell Deck",400,50);
+  gameManager.createDeck("Spell Deck",400,220);
   gameManager.getDeck("Spell Deck").color = "blue";
   gameManager.getDeck("Spell Deck").parseCardsFromJson(spellDeckInitializer);
   
   // Initialize card info module
   cardInfo = new CardInfo();
-  cardInfo.x = 510;
+  cardInfo.x = 450;
   cardInfo.y = 50;
   cardInfo.color = "yellow";
 
@@ -66,17 +62,18 @@ function setup() {
     startingPlayerY -= 80;
   }
 
-  gameManager.createButton("Hello",width/2,height/2);
-  gameManager.getButton("Hello").color = "green";
-  gameManager.getButton("Hello").w = 50;
-  gameManager.getButton("Hello").h = 20;
-  gameManager.getButton("Hello").setAction(() => console.log("Hello there!"));
-
   gameManager.createButton("Play selected card",100,550);
   gameManager.getButton("Play selected card").color = "yellow";
   gameManager.getButton("Play selected card").w = 50;
   gameManager.getButton("Play selected card").h = 20;
   gameManager.getButton("Play selected card").setAction(() => gameManager.playSelectedCard());
+
+  gameManager.createButton("Draw card",100,500);
+  gameManager.getButton("Draw card").color = "yellow";
+  gameManager.getButton("Draw card").w = 50;
+  gameManager.getButton("Draw card").h = 20;
+  gameManager.getButton("Draw card").setAction(() => gameManager.moveNumberOfCardsBetweenContainers(gameManager.getDeck("Spell Deck"),gameManager.getHand("Player Hand"),1));
+
 }
 
 function draw() {
@@ -103,6 +100,7 @@ function mousePressed() {
 function mouseReleased() {
   if (abs(mousePressedX-mouseX) < 5 || abs(mousePressedX-mouseX) < 5) {
     uiManager.onMouseClicked(mouseX,mouseY);
+    cardInfo.onMouseClicked(mouseX,mouseY);
   }
   uiManager.onMouseReleased(mouseX,mouseY);
 }

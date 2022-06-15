@@ -15,8 +15,11 @@ function Card(name) {
     strokeWeight(this.borderThickness);
     rect(this.x, this.y, this.w, this.h);
     pop();
-    textAlign(CENTER);
-    text(this.name, this.x, this.y);
+    push();
+    rectMode(CENTER);
+    textAlign(CENTER,CENTER);
+    text(this.name, this.x, this.y, this.w);
+    pop();
   }
   
   this.showAt = function(x,y,s) {
