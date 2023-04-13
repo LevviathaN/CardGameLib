@@ -20,6 +20,9 @@ function GeometryObj() {
     switch(this.shape) {
       case "rect":
         return abs(mx-this.x) <= this.w/2 && abs(my-this.y) <= this.h/2;
+      case "circle": 
+        return dist(this.x,this.y,mx,my) <= this.size;
+        break;
       case "ellipse": 
         break;
     }

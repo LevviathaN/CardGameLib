@@ -1,13 +1,16 @@
 function Player() {
   this.name = "";
-  this.hand = 0;
+  this.hand = null;
   this.stats = []; //array
   this.size = 60;
+  this.shape = "circle";
   this.alreadyTurnedThisRound = false;
   
   this.show = function() {
     push();
     ellipseMode(CENTER);
+    stroke(this.borderColor);
+    strokeWeight(this.borderThickness);
     fill(this.color);
     ellipse(this.x,this.y,this.size,this.size);
     textAlign(CENTER,CENTER);
@@ -35,6 +38,16 @@ function Player() {
       if (this.stats[i].name == statName) {
         return this.stats[i].value;
       }
+    }
+  }
+
+  this.onMouseClicked = function(mx,my) {
+    if (this.isMouseOver(mx,my)) {
+      if (uiManager.selectedCard != null) {
+        uiManager.selectedCard.highlight("black",1);
+      }
+      uiManager.selectedCard = this;
+      uiManager.selectedCard.highlight("red",2);
     }
   }
 }

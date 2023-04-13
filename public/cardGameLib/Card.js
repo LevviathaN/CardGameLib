@@ -13,6 +13,8 @@ function Card(name) {
     rectMode(CENTER);
     stroke(this.borderColor);
     strokeWeight(this.borderThickness);
+    // translate(width / 2, height / 2);
+    // rotate(5);
     rect(this.x, this.y, this.w, this.h);
     pop();
     push();

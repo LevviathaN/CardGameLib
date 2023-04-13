@@ -1,5 +1,4 @@
 var canva;
-var cardInfo;
 var player;
 var enemyPlayers;
 
@@ -34,10 +33,8 @@ function setup() {
   gameManager.getDeck("Spell Deck").parseCardsFromJson(spellDeckInitializer);
   
   // Initialize card info module
-  cardInfo = new CardInfo();
-  cardInfo.x = 450;
-  cardInfo.y = 50;
-  cardInfo.color = "yellow";
+  gameManager.createInfoBlock(450,50);
+  gameManager.infoBlock.color = "yellow";
 
   // initialize player
   player = new Player();
@@ -46,7 +43,7 @@ function setup() {
   player.name = "Ruslan";
   player.color = "green";
 
-  
+  // add players
   gameManager.createPlayer("Ira","yellow");
   gameManager.createPlayer("Nastya","green");
   gameManager.createPlayer("Petya","red");
@@ -80,7 +77,6 @@ function draw() {
   background(220);
 
   uiManager.show();
-  cardInfo.show();
   player.show();
   if (uiManager.draggedCard != null) {
     uiManager.draggedCard.show();
@@ -100,7 +96,6 @@ function mousePressed() {
 function mouseReleased() {
   if (abs(mousePressedX-mouseX) < 5 || abs(mousePressedX-mouseX) < 5) {
     uiManager.onMouseClicked(mouseX,mouseY);
-    cardInfo.onMouseClicked(mouseX,mouseY);
   }
   uiManager.onMouseReleased(mouseX,mouseY);
 }

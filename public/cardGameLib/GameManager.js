@@ -1,9 +1,17 @@
 function GameManager() {
   this.players = [];
   this.currentPlayer = 0; //container for the player, which turn is now
+  this.infoBlock = null;
   this.decks = [];
   this.hands = [];
   this.buttons = [];
+
+  this.createInfoBlock = function(x,y) {
+    this.infoBlock = new CardInfo();
+    this.infoBlock.name = "Card Info";
+    this.infoBlock.x = x;
+    this.infoBlock.y = y;
+  }
 
   //add universal Create and Get functions for objects in array
   this.createDeck = function(deckName,x,y) {

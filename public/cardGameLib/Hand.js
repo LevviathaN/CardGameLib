@@ -8,6 +8,7 @@ function Hand() {
   //todo: for now handX amd handY are set separatly in scetch.js. Possible solution - set coordinates in constructor.
   this.handX = this.x; // starting x position of container. Needed to correct actual position depending on expandDirection
   this.handY = this.y; // starting y position of container. Needed to correct actual position depending on expandDirection
+  this.showBackground = true;
   
   this.show = function() {
     this.w = this.gcCardSize+2*this.margin;
@@ -92,11 +93,13 @@ function Hand() {
     }
 
     // draw container
-    push();
-    rectMode(CENTER);
-    fill(this.color);
-    rect(this.x, this.y, this.w, this.h);
-    pop();
+    if (this.showBackground) {
+      push();
+      rectMode(CENTER);
+      fill(this.color);
+      rect(this.x, this.y, this.w, this.h);
+      pop();
+    }
 
     // draw all the cards in the container
     for (let i = 0; i < this.cards.length; i++) {

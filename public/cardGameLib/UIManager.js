@@ -9,6 +9,7 @@ function UIManager() {
   
 
   this.show = function() {
+    gameManager.infoBlock.show();
     for (let i = 0; i < gameManager.players.length; i++) {
       gameManager.players[i].value.show();
     }
@@ -24,6 +25,10 @@ function UIManager() {
   }
 
   this.onMouseClicked = function(mx,my) {
+    gameManager.infoBlock.onMouseClicked(mx,my);
+    for (let i = 0; i < gameManager.players.length; i++) {
+      gameManager.players[i].value.onMouseClicked(mx,my);
+    }
     for (let i = 0; i < gameManager.buttons.length; i++) {
       gameManager.buttons[i].value.onMouseClicked(mx,my);
     }

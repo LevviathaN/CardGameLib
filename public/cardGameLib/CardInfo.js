@@ -28,6 +28,7 @@ function CardInfo() {
       let textY = this.y - this.h/2 + this.padding;
       push();
       textAlign(LEFT,TOP);
+      if (this.displayedStatIndex > this.card.stats.length-1) this.displayedStatIndex = 0;
       text(this.card.stats[this.displayedStatIndex].name + " : " + this.card.stats[this.displayedStatIndex].value, textX, textY, statAreaWidth);
       pop();
       // calculate max length of stat name
