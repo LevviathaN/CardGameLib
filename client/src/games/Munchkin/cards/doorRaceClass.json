@@ -1,0 +1,23 @@
+[
+    [
+        {"name": "name", "value": "Jack Rhymer"},
+        {"name": "type", "value": "door"},
+        {"name": "subtype", "value": "beast"},
+        {"name": "conditions", "value": "12"},
+        {"name": "target", "value": "лівий ворог"},
+        {"name": "oneToFour", "value": "2 урону"},
+        {"name": "fiveToNine", "value": "3 урону"},
+        {"name": "tenPlus", "value": "4 урону, а ти береш ще один скарб. СТОЯТИ!"}
+    ],
+    [
+        {"name": "name", "value": "Жракула"},
+        {"name": "type", "value": "приход"},
+        {"name": "element", "value": "трава-тварюка"},
+        {"name": "initiative", "value": "13"},
+        {"name": "target", "value": "ворог з замком"},
+        {"name": "oneToFour", "value": "1 урон"},
+        {"name": "fiveToNine", "value": "2 урону, а ти захоплюєш замок"},
+        {"name": "tenPlus", "value": "5 урону, а ти захоплюєш замок. СТОЯТИ!"},
+        {"name": "qttInDeck", "value": "1"}
+    ]
+]

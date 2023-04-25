@@ -1,0 +1,23 @@
+{
+    "hands": [
+        {
+            "name": "Player Zavadila",
+            "color": "yellow"
+        }
+    ],
+    "decks": [
+        {
+            "name": "Spell Deck"
+
+        }
+    ],
+    "drops": [],
+    "cardInfo": {
+        "x": 0,
+        "y": 0
+    },
+    "playerInfo": {
+        "x": 0,
+        "y": 0
+    }
+}

@@ -4,7 +4,7 @@
   "description": "Framework for online card games",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/LevviathaN/CardGameLib#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
+    "socket.io": "^4.6.1"
   }
 }
